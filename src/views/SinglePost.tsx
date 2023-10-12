@@ -47,7 +47,7 @@ const SinglePost = () => {
     types: {
       image: ({ value }: { value: SanityImageSource }) => {
         return <>
-        <img src={urlFor(value).url()} className="my-2" />
+        <img src={urlFor(value).url()} className="my-2" loading="lazy"/>
         </>;
       },
     },
@@ -75,7 +75,7 @@ const SinglePost = () => {
       </div>
       <div className="flex flex-col p-8">
         <h2 className="text-xl text-center font-semibold mb-8">{title}</h2>
-        <img src={urlFor(mainImage).url()} alt="" />
+        <img src={urlFor(mainImage).url()} alt="" loading="lazy"/>
         <hr className="my-8" />
         <PortableText value={body} components={components} />
       </div>

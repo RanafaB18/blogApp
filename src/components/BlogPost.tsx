@@ -39,6 +39,7 @@ const BlogPost = ({
         <img
           src={urlFor(mainImage).width(348).height(176).url()}
           alt={title}
+          loading="lazy"
           className="h-44 w-full"
         />
         <div

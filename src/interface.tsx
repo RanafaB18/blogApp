@@ -1,13 +1,14 @@
 import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Dispatch, SetStateAction } from "react";
-
+import {PortableTextBlock} from '@portabletext/types'
 export interface IPosts {
     title: string,
     author: string,
     mainImage: string,
     createdAt: string,
-    excerpt: string,
+    body?: PortableTextBlock[],
+    excerpt?: string,
+    slug?: string,
     id?: string
 }
 
@@ -17,5 +18,4 @@ export interface ISource {
 }
 export interface DataContextType {
     posts: Array<IPosts>,
-    urlFor: (source: SanityImageSource) => ImageUrlBuilder,
 }

@@ -13,22 +13,18 @@ const Home = () => {
     <>
       <section className="grid grid-cols-1 gap-4 pt-16 p-8">
         {posts.map((post) => {
-          const { author, mainImage, title, id, createdAt, excerpt } = post;
+          const { author, mainImage, title, id, createdAt, excerpt, slug } =
+            post;
 
-          const date = new Date(createdAt);
-          const formattedDate = date.toLocaleString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          });
           return (
             <BlogPost
               key={id}
               author={author}
               mainImage={mainImage}
               title={title}
-              createdAt={formattedDate}
+              createdAt={createdAt}
               excerpt={excerpt}
+              slug={slug}
             />
           );
         })}

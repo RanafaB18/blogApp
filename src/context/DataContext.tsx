@@ -6,7 +6,7 @@ export const DataContext = createContext<DataContextType | null>(null);
 
 const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [posts, setPosts] = useState<IPosts[]>([]);
-
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     client
@@ -25,11 +25,15 @@ const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
         console.log(data);
         setPosts(data);
       });
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 4000);
   }, []);
   return (
     <DataContext.Provider
       value={{
         posts,
+        isLoading
       }}
     >
       {children}

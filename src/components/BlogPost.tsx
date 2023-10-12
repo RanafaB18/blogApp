@@ -37,7 +37,7 @@ const BlogPost = ({
     >
       <div className="w-full tracking-wider">
         <img
-          src={urlFor(mainImage).url()}
+          src={urlFor(mainImage).width(348).height(176).url()}
           alt={title}
           className="h-44 w-full"
         />

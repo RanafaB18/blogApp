@@ -18,4 +18,5 @@ export interface ISource {
 }
 export interface DataContextType {
     posts: Array<IPosts>,
+    isLoading: boolean
 }

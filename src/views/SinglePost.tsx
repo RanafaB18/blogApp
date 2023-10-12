@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../client";
 import { IPosts } from "../interface";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "../data/util";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Lottie from "lottie-react";
@@ -43,7 +43,7 @@ const SinglePost = () => {
     month: "long",
     day: "numeric",
   });
-  const components = {
+  const components: PortableTextComponents = {
     types: {
       image: ({ value }: { value: SanityImageSource }) => {
         return <>
@@ -52,12 +52,12 @@ const SinglePost = () => {
       },
     },
     block: {
-      p: ({ children }: { children: ReactNode}) => {
+      p: ({ children }) => {
         console.log("Children", children);
         return <p className="text-red-600">{ children }</p>
       },
-      h1: ({ children }: { children: ReactNode}) => <h1 className="text-2xl">{children}</h1>,
-      h2: ({ children }: { children: ReactNode}) => <h1 className="text-xl text-red-600">{children}</h1>,
+      h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
+      h2: ({ children }) => <h1 className="text-xl text-red-600">{children}</h1>,
     },
     marks: {
       color: ({ children }: { children: ReactNode}) => {
